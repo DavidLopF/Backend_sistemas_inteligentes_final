@@ -1,0 +1,32 @@
+"""
+rule "aced student"
+when
+    AND(Math > 80, Written_expression > 80, Natural_sciences > 80,
+    Foreign_language > 80, Social_sciences > 80,)
+then
+    getRes("You can study your highest preference career!")
+end
+
+rule "Eng or Sci"
+when
+    AND(Math > 80, 
+    Natural_sciences > 80)
+then
+    getRes("You can study engineering or science!")
+end
+
+rule "Hum or Health"
+when
+    AND(OR(Engineering > 7, Sciences > 7), Math < 60)
+then
+    getRes("You can study Humanities or Health!")
+end
+
+rule "Hum"
+when
+    AND(Natural_sciences < 60, Health > 7)
+then
+    getRes("You can study Humanities!")
+end
+
+"""
