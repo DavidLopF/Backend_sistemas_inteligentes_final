@@ -3,6 +3,7 @@ from flask import jsonify
 from dotenv import load_dotenv
 import os
 from business_rule_engine import RuleParser
+from flask_cors import CORS  
 
 load_dotenv()
 
@@ -11,6 +12,7 @@ load_dotenv()
 
 def create_app(enviroment):
     app = Flask(__name__)
+    CORS(app)
     return app
 
 app = create_app('development')
