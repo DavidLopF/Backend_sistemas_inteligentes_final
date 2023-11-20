@@ -33,17 +33,18 @@ def get_carrer():
     res = []
     
     params = {
-    "Math": os.getenv('MATH'),
-    "Written_expression": os.getenv('WRITTEN_EXPRESSION'),
-    "Natural_sciences": os.getenv('NATURAL_SCIENCES'),
-    "Foreign_language": os.getenv('FOREIGN_LANGUAGE'),
-    "Social_sciences": os.getenv('SOCIAL_SCIENCES'),
-    "Humanities": os.getenv('HUMANITIES'),
-    "Engineering": os.getenv('ENGINEERING'),
-    "Sciences": os.getenv('SCIENCES'),
-    "Health": os.getenv('HEALTH'),
-    "res": res
+    "Math": math,
+    "Written_expression": we,
+    "Natural_sciences": ns,
+    "Foreign_language": fl,
+    "Social_sciences": ss,
+    "Humanities": hum,
+    "Engineering": eng,
+    "Sciences": sci,
+    "Health": health
     }
+
+
     with open('rules.txt', 'r') as file:
         rules = file.read()
     
@@ -58,11 +59,11 @@ def get_carrer():
     parser.parsestr(rules)
     response = parser.execute(params)
     
-    if (response == False):
-        response = "You can't study any career"
+    # if (response == False):
+    #     response = "You can't study any career"
     print(response)
     return jsonify(res)
-                                                                                                       
+                                                                                    
 
 
 

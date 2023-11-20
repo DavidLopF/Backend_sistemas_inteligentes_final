@@ -1,32 +1,65 @@
 """
-rule "aced student"
+rule "future engineer or scientist with good language skills"
 when
-    AND(Math > 80, Written_expression > 80, Natural_sciences > 80,
-    Foreign_language > 80, Social_sciences > 80,)
+    AND(OR(AND(Math > 70, Engineering > 70), AND(Natural_sciences > 70, Sciences > 70)), Foreign_language > 70)
 then
-    getRes("You can study your highest preference career!")
+    getRes("Te recomendamos estudiar ingenieria o ciencias naturales y considerar una carrera internacional")
 end
 
-rule "Eng or Sci"
+rule "future social scientist with interest in humanities"
 when
-    AND(Math > 80, 
-    Natural_sciences > 80)
+    AND(Social_sciences > 70, Humanities > 70)
 then
-    getRes("You can study engineering or science!")
+    getRes("Te recomendamos estudiar ciencias sociales con un enfoque en humanidades")
 end
 
-rule "Hum or Health"
+rule "future health professional with strong math skills"
 when
-    AND(OR(Engineering > 7, Sciences > 7), Math < 60)
+    AND(Health > 70, Math > 70)
 then
-    getRes("You can study Humanities or Health!")
+    getRes("Te recomendamos estudiar medicina o alguna carrera relacionada con la salud y considerar la investigacion medica")
 end
 
-rule "Hum"
+rule "well-rounded student"
 when
-    AND(Natural_sciences < 60, Health > 7)
+    AND(Math > 70, Written_expression > 70, Natural_sciences > 70, Foreign_language > 70, Social_sciences > 70, Humanities > 70, Engineering > 70, Sciences > 70, Health > 70)
 then
-    getRes("You can study Humanities!")
+    getRes("Tienes habilidades en muchas areas. Te recomendamos explorar diferentes campos antes de tomar una decision")
+end
+
+rule "future engineer with interest in health"
+when
+    AND(Math > 70, Engineering > 70, Health > 70)
+then
+    getRes("Te recomendamos estudiar ingenieria biomedica")
+end
+
+rule "future scientist with strong language skills"
+when
+    AND(Natural_sciences > 70, Sciences > 70, Foreign_language > 70)
+then
+    getRes("Te recomendamos estudiar ciencias y considerar una carrera en la diplomacia cientifica")
+end
+
+rule "future linguist with interest in social sciences"
+when
+    AND(Foreign_language > 70, Social_sciences > 70)
+then
+    getRes("Te recomendamos estudiar linguistica con un enfoque en ciencias sociales")
+end
+
+rule "future humanist with strong math skills"
+when
+    AND(Humanities > 70, Math > 70)
+then
+    getRes("Te recomendamos estudiar filosofia con un enfoque en logica y matematicas")
+end
+
+rule "future health professional with interest in engineering"
+when
+    AND(Health > 50, Engineering > 70)
+then
+    getRes("Te recomendamos estudiar bioingenieria o tecnologia medica")
 end
 
 """
